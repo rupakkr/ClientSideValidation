@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<af:pageTemplateDef xmlns:af="http://xmlns.oracle.com/adf/faces/rich" var="attrs" definition="private"
+                    xmlns:afc="http://xmlns.oracle.com/adf/faces/rich/component" xmlns:f="http://java.sun.com/jsf/core">
+    <af:xmlContent>
+        <afc:component>
+            <afc:description/>
+            <afc:display-name>template1</afc:display-name>
+            <afc:facet>
+                <afc:facet-name>Content</afc:facet-name>
+            </afc:facet>
+        </afc:component>
+    </af:xmlContent>
+    <af:panelStretchLayout id="pt_psl1" topHeight="58px">
+        <f:facet name="start"/>
+        <f:facet name="end"/>
+        <f:facet name="top">
+            
+            <af:panelGroupLayout id="pt_pgl1" inlineStyle="background-color: Blue; font-size: x-large;">
+                <af:image source="TpB7umfK.png" id="pt_i1" inlineStyle="width:100px; height:50px;"/>
+                <af:spacer width="10" height="10" id="pt_s1"/>
+                <af:outputText value="Hyber IT Services Pvt Ltd." id="pt_ot1"/>
+            </af:panelGroupLayout>
+        </f:facet>
+        <f:facet name="bottom">
+            <af:panelGroupLayout id="pt_pgl2" inlineStyle="background-color: Blue; font-size: x-large;">
+                <af:outputText value="copyright @ www.hyberit.com" id="pt_ot2"/>
+            </af:panelGroupLayout>
+           
+        </f:facet>
+        <f:facet name="center">
+            <af:facetRef facetName="Content"/>
+        </f:facet>
+    </af:panelStretchLayout>
+</af:pageTemplateDef>

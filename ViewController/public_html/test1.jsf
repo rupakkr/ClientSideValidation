@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="test1.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelStretchLayout id="psl1" startWidth="350px">
+                <f:facet name="start" ></f:facet>
+                <f:facet name="end"/>
+                <f:facet name="top"/>
+                <f:facet name="bottom"/>
+                <f:facet name="center">
+                    <af:panelFormLayout id="pfl1" >
+                        <af:inputText value="#{bindings.EmployeeId.inputValue}"
+                                      label="#{bindings.EmployeeId.hints.label}"
+                                      required="#{bindings.EmployeeId.hints.mandatory}"
+                                      columns="#{bindings.EmployeeId.hints.displayWidth}"
+                                      maximumLength="#{bindings.EmployeeId.hints.precision}"
+                                      shortDesc="#{bindings.EmployeeId.hints.tooltip}" id="it1">
+                            <f:validator binding="#{bindings.EmployeeId.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.EmployeeId.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.FirstName.inputValue}" label="#{bindings.FirstName.hints.label}"
+                                      required="#{bindings.FirstName.hints.mandatory}"
+                                      columns="#{bindings.FirstName.hints.displayWidth}"
+                                      maximumLength="#{bindings.FirstName.hints.precision}"
+                                      shortDesc="#{bindings.FirstName.hints.tooltip}" id="it2">
+                            <f:validator binding="#{bindings.FirstName.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.LastName.inputValue}" label="#{bindings.LastName.hints.label}"
+                                      required="#{bindings.LastName.hints.mandatory}"
+                                      columns="#{bindings.LastName.hints.displayWidth}"
+                                      maximumLength="#{bindings.LastName.hints.precision}"
+                                      shortDesc="#{bindings.LastName.hints.tooltip}" id="it3">
+                            <f:validator binding="#{bindings.LastName.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.Email.inputValue}" label="#{bindings.Email.hints.label}"
+                                      required="#{bindings.Email.hints.mandatory}"
+                                      columns="#{bindings.Email.hints.displayWidth}"
+                                      maximumLength="#{bindings.Email.hints.precision}"
+                                      shortDesc="#{bindings.Email.hints.tooltip}" id="it4">
+                           <!-- <f:validator binding="#{bindings.Email.validator}"/> -->
+                           <af:validateRegExp pattern="^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"
+                                                messageDetailNoMatch="You have entered an invalid email address. Please try again."
+                           />
+                        </af:inputText>
+                        <af:inputText value="#{bindings.PhoneNumber.inputValue}"
+                                      label="#{bindings.PhoneNumber.hints.label}"
+                                      required="#{bindings.PhoneNumber.hints.mandatory}"
+                                      columns="#{bindings.PhoneNumber.hints.displayWidth}"
+                                      maximumLength="#{bindings.PhoneNumber.hints.precision}"
+                                      shortDesc="#{bindings.PhoneNumber.hints.tooltip}" id="it5">
+                            <f:validator binding="#{bindings.PhoneNumber.validator}"/>
+                        </af:inputText>
+                        <af:panelGroupLayout id="pgl1">
+                            <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                                       disabled="#{!bindings.CreateInsert.enabled}" id="b1"/>
+                            <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
+                                       disabled="#{!bindings.Commit.enabled}" id="b2"/>
+                        </af:panelGroupLayout>
+                    </af:panelFormLayout>
+                </f:facet>
+            </af:panelStretchLayout>
+        </af:form>
+    </af:document>
+</f:view>
